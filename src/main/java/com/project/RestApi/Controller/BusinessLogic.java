@@ -20,25 +20,22 @@ import jakarta.annotation.PostConstruct;
 @RequestMapping("/api")
 public class BusinessLogic {
 
-    private  List<CreateUserRequest> studlist;
+    private List<CreateUserRequest> listobj;
 
     @PostConstruct
-    public void loadData()
+    public void addusers()
     {
-         studlist = new ArrayList<>();
-
-        studlist.add(new CreateUserRequest("Ajay", "Rohith",21, "Newgen"));
-        studlist.add(new CreateUserRequest("test", "Kumar",22, "Google"));
+        listobj = new ArrayList<>();
+        listobj.add(new CreateUserRequest("Ajay", "Rohith", 19,"Zoho"));
+        listobj.add(new CreateUserRequest("Virat", "Kohli", 19,"Google"));
     }
 
 
-    @GetMapping("/students/{id}")
-    public CreateUserRequest students(@PathVariable int id)    
+    @GetMapping("/student/{id}")
+    public CreateUserRequest Retstudents(@PathVariable int id)
     {
-      
-       return studlist.get(id);
-       
+        
+        return listobj.get(id);
     }
-   
 
 }
