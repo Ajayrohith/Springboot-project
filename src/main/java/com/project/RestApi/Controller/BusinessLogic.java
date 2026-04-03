@@ -32,9 +32,12 @@ public class BusinessLogic {
 
 
     @GetMapping("/student/{id}")
-    public CreateUserRequest Retstudents(@PathVariable int id)
+    public CreateUserRequest Retstudents(@PathVariable int id) throws Exception 
     {
-        
+        if(id > listobj.size())
+        {
+            throw new CustomException("The id is greater than the number of student ");
+        }
         return listobj.get(id);
     }
 
